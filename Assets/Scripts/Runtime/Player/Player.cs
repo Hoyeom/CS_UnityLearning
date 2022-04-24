@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     private PlayerStatus _status;
     
     
-    
     private void Awake()
     {
         _status ??= GetComponent<PlayerStatusContainer>().Status;

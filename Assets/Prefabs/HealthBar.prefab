@@ -109,6 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthImage: {fileID: 9102489946533686917}
+  isDOTween: 1
+  doTime: 0.2
 --- !u!1 &9102489946533686918
 GameObject:
   m_ObjectHideFlags: 0

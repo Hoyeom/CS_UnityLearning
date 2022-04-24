@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d17fa97f85781439903b14cacecaf7, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  _maxHealth: 5
+  _maxHealth: 20
