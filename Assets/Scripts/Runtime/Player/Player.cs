@@ -1,12 +1,15 @@
 using System;
 using Runtime.Player;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerStatusContainer))]
 public class Player : MonoBehaviour
 {
     private PlayerStatus _status;
-
+    
+    
+    
     private void Awake()
     {
         _status ??= GetComponent<PlayerStatusContainer>().Status;
@@ -15,7 +18,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         // TEST
-        if (Input.GetButtonDown("Fire1"))
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             _status.Health -= 1;
         }
