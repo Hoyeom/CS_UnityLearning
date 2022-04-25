@@ -396,7 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rotationSpeed: 100
-  fuel: {fileID: 1459591078}
+  target: {fileID: 1459591078}
 --- !u!1001 &1459591077
 PrefabInstance:
   m_ObjectHideFlags: 0
