@@ -3,47 +3,58 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing.Printing;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FollowPath : MonoBehaviour
 {
-    private Transform _goal;
-    private float _speed = 5.0f;
-    private float _accuracy = 1.0f;
-    private float _rotSpeed = 2.0f;
-    
+    // private Transform _goal;
+    // private float _speed = 5.0f;
+    // private float _accuracy = 1.0f;
+    // private float _rotSpeed = 2.0f;
+
     [SerializeField] private GameObject _waypointManager;
     private GameObject[] _waypoints;
-    private GameObject _currentNode;
-    private int _currentWaypoint;
-    private Graph _graph;
+    [SerializeField] private NavMeshAgent agent;
+    
+    // private GameObject _currentNode;
+    // private int _currentWaypoint;
+    // private Graph _graph;
+
+    private void OnValidate()
+    {
+        agent ??= GetComponent<NavMeshAgent>();
+    }
 
     private void Start()
     {
         _waypoints = _waypointManager.GetComponent<WaypointManager>().waypoints;
-        _graph = _waypointManager.GetComponent<WaypointManager>().graph;
-        _currentNode = _waypoints[7];
+        // _graph = _waypointManager.GetComponent<WaypointManager>().graph;
+        // _currentNode = _waypoints[7];
     }
 
     public void GoToHeli()
     {
-        _graph.AStar(_currentNode, _waypoints[2]);
-        _currentWaypoint = 0;
+        agent.SetDestination(_waypoints[2].transform.position);
+        // _graph.AStar(_currentNode, _waypoints[2]);
+        // _currentWaypoint = 0;
     }
 
     public void GoToRuin()
     {
-        _graph.AStar(_currentNode, _waypoints[5]);
-        _currentWaypoint = 0;
+        agent.SetDestination(_waypoints[5].transform.position);
+        // _graph.AStar(_currentNode, _waypoints[5]);
+        // _currentWaypoint = 0;
     }
     public void GoToTank()
     {
-        _graph.AStar(_currentNode, _waypoints[0]);
-        _currentWaypoint = 0;
+        agent.SetDestination(_waypoints[0].transform.position);
+        // _graph.AStar(_currentNode, _waypoints[0]);
+        // _currentWaypoint = 0;
     }
 
     
     
-    private void LateUpdate()
+    /*private void LateUpdate()
     {
         if(_graph.getPathLength() == 0 || _currentWaypoint == _graph.getPathLength())
             return;
@@ -71,5 +82,5 @@ public class FollowPath : MonoBehaviour
             
             transform.Translate(0,0,_speed*Time.deltaTime);
         }
-    }
+    }*/
 }
